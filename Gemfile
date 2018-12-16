@@ -15,6 +15,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bcrypt', '~> 3.1.7'
 gem 'doorkeeper'
 
+gem 'pundit'
+
 # API
 gem 'rack-cors'
 gem 'active_model_serializers'
