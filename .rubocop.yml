@@ -18,6 +18,11 @@ Metrics/ParameterLists:
 Metrics/AbcSize:
   Max: 60
 
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+    - "lib/tasks/*"
+
 Metrics/ClassLength:
   Max: 1200
 
