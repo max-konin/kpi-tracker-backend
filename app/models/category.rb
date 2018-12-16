@@ -9,8 +9,13 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
+# Indexes
+#
+#  index_categories_on_name  (name) UNIQUE
+#
+
 class Category < ApplicationRecord
   validates :kpi_period, inclusion: { in: [7, 30] }
   validates :kpi_quantity_goal, numericality: { greater_than: 0 }
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 end

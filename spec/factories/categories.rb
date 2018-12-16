@@ -9,10 +9,14 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
+# Indexes
+#
+#  index_categories_on_name  (name) UNIQUE
+#
 
 FactoryBot.define do
   factory :category do
-    name { 'Influencer outreach' }
+    sequence(:name) { |n| "cat##{n}" }
     kpi_period { 7 }
     kpi_quantity_goal { 1 }
   end

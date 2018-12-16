@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2018_12_16_052453) do
     t.integer "kpi_quantity_goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
