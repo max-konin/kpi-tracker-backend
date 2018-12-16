@@ -1,6 +1,6 @@
 class AccountUser
   attr_reader :account, :user, :access
-   
+
   def initialize(account:, user:)
     @account = account
     @user = user

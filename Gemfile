@@ -21,6 +21,7 @@ gem 'active_model_serializers'
 gem 'validates_email_format_of'
 
 group :development, :test do
+  gem 'byebug'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'rubocop'

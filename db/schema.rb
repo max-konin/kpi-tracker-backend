@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_06_115556) do
+ActiveRecord::Schema.define(version: 2018_12_16_052453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2018_10_06_115556) do
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "kpi_period"
+    t.integer "kpi_quantity_goal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
