@@ -25,7 +25,8 @@ module Api
       end
 
       def index
-        render json: Task.all, include: INCLUDED_DATA
+        render json: Task.all.ransack(params[:q]).result.includes(*INCLUDED_DATA),
+               include: INCLUDED_DATA
       end
 
       def show

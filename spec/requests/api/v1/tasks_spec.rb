@@ -13,10 +13,19 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
 
   describe 'GET /api/v1/tasks' do
     context 'with token' do
-      let!(:task) { create :task }
-      before { get '/api/v1/tasks', headers: headers }
-      it { expect(response).to have_http_status(200) } 
-      it { expect(json['data'].size).to eq(1) }
+      context 'w/o filters' do
+        let!(:task) { create :task }
+        before { get '/api/v1/tasks', headers: headers }
+        it { expect(response).to have_http_status(200) } 
+        it { expect(json['data'].size).to eq(1) }
+      end
+      context 'with filter' do
+        let!(:task1) { create :task, kpi_points: 10 }
+        let!(:task2) { create :task, kpi_points: 1 }
+        before { get '/api/v1/tasks', headers: headers, params: { q: { kpi_points_eq: 10 } } }
+        it { expect(response).to have_http_status(200) } 
+        it { expect(json['data'].size).to eq(1) }
+      end
     end
     context 'without token' do
       before { get "/api/v1/tasks" }
