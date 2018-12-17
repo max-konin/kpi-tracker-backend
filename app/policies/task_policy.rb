@@ -12,11 +12,11 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def update?
-    is_user_a_creator?
+    user_a_creator?
   end
 
   def destroy?
-    is_user_a_creator?
+    user_a_creator?
   end
 
   class Scope < Scope
@@ -27,7 +27,7 @@ class TaskPolicy < ApplicationPolicy
 
   private
 
-  def is_user_a_creator?
+  def user_a_creator?
     @record.user_id == @user.id
   end
 end

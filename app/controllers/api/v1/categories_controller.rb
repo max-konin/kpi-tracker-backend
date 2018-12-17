@@ -1,6 +1,6 @@
 module Api
   module V1
-    class CategoriesController < ApplicationController
+    class CategoriesController < Api::V1::ApiController
       def index
         render json: Category.all
       end

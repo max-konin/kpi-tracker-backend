@@ -3,7 +3,7 @@ module Api
     class UsersController < Api::V1::ApiController
       before_action :doorkeeper_authorize!, except: :create
 
-       def me
+      def me
         render json: current_user, account_user: current_account_user
       end
 

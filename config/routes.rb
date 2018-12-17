@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/users/me', to: 'users#me'
-      resources :users
+
       resources :categories, only: %i[index show]
+      resources :tasks, expect: %i[new edit]
+      resources :users
     end
   end
 end

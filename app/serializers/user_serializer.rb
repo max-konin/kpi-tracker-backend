@@ -18,6 +18,6 @@ class UserSerializer < ActiveModel::Serializer
 
   def account
     account_user = @instance_options[:account_user]
-    account_user.account
+    account_user&.account
   end
 end
