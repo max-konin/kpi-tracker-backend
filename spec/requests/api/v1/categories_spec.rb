@@ -7,7 +7,7 @@ RSpec.describe 'Api::V1::Categories', type: :request do
     before { get '/api/v1/categories' }
 
     it { expect(response).to have_http_status(200) }
-    it { expect(json.size).to eq(1) }
+    it { expect(json['data'].size).to eq(1) }
   end
 
   describe 'GET /api/v1/categories/:id' do

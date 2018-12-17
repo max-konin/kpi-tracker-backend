@@ -17,7 +17,7 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  describe 'valid?' do
+  describe '#valid?' do
     subject { category.valid? }
 
     context 'when a name is not present' do
