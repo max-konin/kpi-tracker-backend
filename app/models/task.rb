@@ -28,4 +28,6 @@ class Task < ApplicationRecord
 
   validates :notes, :task_finished_at, :kpi_points, presence: true
   validates :kpi_points, numericality: { greater_than: 0 }
+
+  default_scope { order id: :desc }
 end

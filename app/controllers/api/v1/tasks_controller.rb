@@ -15,7 +15,7 @@ module Api
       def destroy
         authorize @task
         @task.destroy
-        head :ok
+        head :no_content
       end
 
       def update
